@@ -47,6 +47,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 
@@ -57,7 +73,7 @@
     <div class="container">
 
         <!-- Brand -->
-        <a class="navbar-brand waves-effect" href="/" >
+        <a class="navbar-brand waves-effect" href="/">
             <strong class="blue-text">QSeLL</strong>
         </a>
 
@@ -78,8 +94,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/product">Products
-                        </a>
+                    <a class="nav-link waves-effect" href="#">
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect"
@@ -90,6 +106,7 @@
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
+                {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link waves-effect">
                         <span class="badge red z-depth-1 mr-1"> 1 </span>
@@ -97,6 +114,24 @@
                         <span class="clearfix d-none d-sm-inline-block"> Cart </span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
+                        <span class="clearfix d-none d-sm-inline-block"> Logout</span>
+                    </a>
+
+                    {% else %}
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+                        <span class="clearfix d-none d-sm-inline-block"> Login</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+                        <span class="clearfix d-none d-sm-inline-block"> SignUp</span>
+                    </a>
+                </li>
+                {% endif %}
                 <li class="nav-item">
                     <a href="https://www.facebook.com/" class="nav-link waves-effect" target="_blank">
                         <i class="fab fa-facebook-f"></i>
@@ -115,6 +150,21 @@
     </div>
 </nav>
 
+<div class="mt-5 pt-4">{% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert alert-{{message.tags }} alert-dismissble fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times:</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    {% endif %}
+
+</div>
 {% block content %}
 
 {% endblock %}
@@ -187,7 +237,6 @@
 <script type="text/javascript">
     // Animations initialization
     new WOW().init();
-
 
 
 
