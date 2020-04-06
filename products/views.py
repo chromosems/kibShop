@@ -16,10 +16,6 @@ class HomeView(ListView):
     template_name = "home.html"
 
 
-def Checkout(request):
-    return render(request, 'checkout.html', {})
-
-
 class OrderSummaryView(View):
     def get(self, *args, **kwargs):
 
@@ -80,6 +76,33 @@ def remove_from_cart(request, slug):
             order.items.remove(order_item)
             messages.info(request, "This item was removed from your cart")
             return redirect("core:product", slug=slug)
+
+        else:
+            # add a message (user does not have an order)
+            messages.info(request, "This item was not in  your cart")
+
+            return redirect("core:product", slug=slug)
+    else:
+        # add a message (user does not have an active order
+        messages.info(request, "You do not have an active order")
+
+        return redirect("core:product", slug=slug)
+
+
+@login_required
+def remove_single_item_from_cart(request, slug):
+    item = get_object_or_404(Item, slug=slug)
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    if order_qs.exists():
+        order = order_qs[0]
+
+        if order.items.filter(item__slug=item.slug).exists():
+            order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
+            order_item.quantity -= 1
+            order_item.save()
+            order.items.remove(order_item)
+            messages.info(request, "This item quantity was updated")
+            return redirect("core:order-summary")
 
         else:
             # add a message (user does not have an order)
