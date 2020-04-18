@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products.apps.ProductsConfig',
+    'django_countries',
 
     'django.contrib.sites',
 
@@ -129,3 +130,7 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
