@@ -49,6 +49,8 @@
 
 
 
+
+
     </style>
 </head>
 
@@ -60,7 +62,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="/">
-            <strong class="blue-text">QSeLL</strong>
+            <strong class="blue-text">KibSeLL</strong>
         </a>
 
         <!-- Collapse -->
@@ -94,11 +96,11 @@
             <ul class="navbar-nav nav-flex-icons">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                   <a href="{% url 'core:order-summary' %}" class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-            </a>
+                    <a href="{% url 'core:order-summary' %}" class="nav-link waves-effect">
+                        <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
@@ -162,43 +164,43 @@
 
     <!--/.Call to action-->
 
-    <hr class="my-4">
+<!--    <hr class="my-4">-->
 
     <!-- Social icons -->
-    <div class="pb-4">
-        <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-            <i class="fab fa-facebook-f mr-3"></i>
-        </a>
+<!--    <div class="pb-4">-->
+<!--        <a href="https://www.facebook.com/mdbootstrap" target="_blank">-->
+<!--            <i class="fab fa-facebook-f mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="https://twitter.com/MDBootstrap" target="_blank">
-            <i class="fab fa-twitter mr-3"></i>
-        </a>
+<!--        <a href="https://twitter.com/MDBootstrap" target="_blank">-->
+<!--            <i class="fab fa-twitter mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
-            <i class="fab fa-youtube mr-3"></i>
-        </a>
+<!--        <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">-->
+<!--            <i class="fab fa-youtube mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-            <i class="fab fa-google-plus-g mr-3"></i>
-        </a>
+<!--        <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">-->
+<!--            <i class="fab fa-google-plus-g mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="https://dribbble.com/mdbootstrap" target="_blank">
-            <i class="fab fa-dribbble mr-3"></i>
-        </a>
+<!--        <a href="https://dribbble.com/mdbootstrap" target="_blank">-->
+<!--            <i class="fab fa-dribbble mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="https://pinterest.com/mdbootstrap" target="_blank">
-            <i class="fab fa-pinterest mr-3"></i>
-        </a>
+<!--        <a href="https://pinterest.com/mdbootstrap" target="_blank">-->
+<!--            <i class="fab fa-pinterest mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-            <i class="fab fa-github mr-3"></i>
-        </a>
+<!--        <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">-->
+<!--            <i class="fab fa-github mr-3"></i>-->
+<!--        </a>-->
 
-        <a href="http://codepen.io/mdbootstrap/" target="_blank">
-            <i class="fab fa-codepen mr-3"></i>
-        </a>
-    </div>
-    <!-- Social icons -->
+<!--        <a href="http://codepen.io/mdbootstrap/" target="_blank">-->
+<!--            <i class="fab fa-codepen mr-3"></i>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Social icons &ndash;&gt;-->
 
     <!--Copyright-->
     <div class="footer-copyright py-3">
@@ -223,6 +225,8 @@
 <script type="text/javascript">
     // Animations initialization
     new WOW().init();
+
+
 
 
 
